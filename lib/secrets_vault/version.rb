@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-module SecretsVault
+class SecretsVault
   VERSION = "0.0.0"
 end
