@@ -71,21 +71,14 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
+  config.before do
+    stub_const("SecretsVault::BASE_DIR", "./tmp")
+  end
+
   config.around(:each) do |example|
     Dir.mktmpdir do |dir|
       Dir.chdir(dir) do
         example.run
-
-        # Clean up test files from default directory after each test
-        base_dir = File.expand_path(SecretsVault::BASE_DIR)
-        if Dir.exist?(base_dir)
-          # Clean up vault files (they start with a dot)
-          Dir.glob(File.join(base_dir, ".*")).each do |file|
-            next if ['.', '..'].include?(File.basename(file))
-            File.delete(file) if File.file?(file)
-          end
-          Dir.rmdir(base_dir) if Dir.empty?(base_dir)
-        end
       end
     end
   end
