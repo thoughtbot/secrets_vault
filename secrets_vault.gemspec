@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Matheus Richard"]
   spec.email = ["matheusrichardt@gmail.com"]
 
-  spec.summary = "Placeholder"
-  spec.description = "Placeholder"
+  spec.summary = "Store and retrieve secrets securely."
+  spec.description = "A vault for storing and retrieving secrets securely."
   spec.homepage = "https://github.com/thoughtbot/secrets_vault"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 3.2.0"
