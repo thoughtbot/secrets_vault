@@ -7,11 +7,11 @@ applications. It supports both encrypted and plaintext storage vaults.
 
 ## Common Use Cases
 
-SecretsVault is perfect for scenarios where you need secure, local secret storage:
+Secrets Vault is perfect for scenarios where you need secure, local storage:
 
-- **Game Development**: Store save data and player progress securely without exposing sensitive information.
 - **Gem Development**: Allow users to store API tokens and credentials via your gem's CLI instead of relying on environment variables.
 - **Credentials**: Get [Rails credentials]-like functionality outside of Rails applications.
+- **Game Development**: Store save data and player progress securely without exposing sensitive information.
 
 [Rails credentials]: https://guides.rubyonrails.org/security.html#custom-credentials
 
@@ -124,14 +124,14 @@ https://github.com/thoughtbot/secrets_vault.
 
 Open source templates are Copyright (c) thoughtbot, inc. It contains free
 software that may be redistributed under the terms specified in the
-[LICENSE](https://github.com/thoughtbot/planck/blob/main/LICENSE.txt)
+[LICENSE](https://github.com/thoughtbot/secrets_vault/blob/main/LICENSE.txt)
 file.
 
 ## Code of Conduct
 
 Everyone interacting in the DataCustoms project's codebases, issue trackers,
 chat rooms and mailing lists is expected to follow the [code of
-conduct](https://github.com/thoughtbot/planck/blob/main/CODE_OF_CONDUCT.md).
+conduct](https://github.com/thoughtbot/secrets_vault/blob/main/CODE_OF_CONDUCT.md).
 
 <!-- START /templates/footer.md -->
 
@@ -145,5 +145,5 @@ thoughtbot are trademarks of thoughtbot, inc.
 We love open source software! See [our other projects][community]. We are
 [available for hire][hire].
 
-[community]: https://thoughtbot.com/community?utm_source=github&utm_medium=readme&utm_campaign=planck
-[hire]: https://thoughtbot.com/hire-us?utm_source=github&utm_medium=readme&utm_campaign=planck
+[community]: https://thoughtbot.com/community?utm_source=github&utm_medium=readme&utm_campaign=secrets_vault
+[hire]: https://thoughtbot.com/hire-us?utm_source=github&utm_medium=readme&utm_campaign=secrets_vault
