@@ -1,9 +1,19 @@
-# SecretsVault
+# Secrets Vault
 
 A vault for storing and retrieving secrets securely.
 
-SecretsVault provides a simple and secure way to manage secrets in your Ruby
+Secrets Vault provides a simple and secure way to manage secrets in your Ruby
 applications. It supports both encrypted and plaintext storage vaults.
+
+## Common Use Cases
+
+SecretsVault is perfect for scenarios where you need secure, local secret storage:
+
+- **Game Development**: Store save data and player progress securely without exposing sensitive information.
+- **Gem Development**: Allow users to store API tokens and credentials via your gem's CLI instead of relying on environment variables.
+- **Credentials**: Get [Rails credentials]-like functionality outside of Rails applications.
+
+[Rails credentials]: https://guides.rubyonrails.org/security.html#custom-credentials
 
 ## Installation
 
@@ -77,7 +87,7 @@ vault = SecretsVault.new(
 
 ### Error Handling
 
-SecretsVault raises specific exceptions for different error conditions:
+Secrets Vault raises specific exceptions for different error conditions:
 
 ```ruby
 begin
@@ -112,5 +122,28 @@ https://github.com/thoughtbot/secrets_vault.
 
 ## License
 
-The gem is available as open source under the terms of the [MIT
-License](https://opensource.org/licenses/MIT).
+Open source templates are Copyright (c) thoughtbot, inc. It contains free
+software that may be redistributed under the terms specified in the
+[LICENSE](https://github.com/thoughtbot/planck/blob/main/LICENSE.txt)
+file.
+
+## Code of Conduct
+
+Everyone interacting in the DataCustoms project's codebases, issue trackers,
+chat rooms and mailing lists is expected to follow the [code of
+conduct](https://github.com/thoughtbot/planck/blob/main/CODE_OF_CONDUCT.md).
+
+<!-- START /templates/footer.md -->
+
+## About thoughtbot
+
+![thoughtbot](https://thoughtbot.com/thoughtbot-logo-for-readmes.svg)
+
+This repo is maintained and funded by thoughtbot, inc. The names and logos for
+thoughtbot are trademarks of thoughtbot, inc.
+
+We love open source software! See [our other projects][community]. We are
+[available for hire][hire].
+
+[community]: https://thoughtbot.com/community?utm_source=github&utm_medium=readme&utm_campaign=planck
+[hire]: https://thoughtbot.com/hire-us?utm_source=github&utm_medium=readme&utm_campaign=planck
