@@ -3,7 +3,7 @@ require "fileutils"
 class SecretsVault
   module Adapters
     class PlaintextFile
-      def self.vault_filename_for(namespace) = ".#{namespace}.json"
+      def self.vault_filename_for(namespace) = ".#{Helpers.sanitize_path_component(namespace)}.json"
 
       def self.find_or_create(namespace, base_dir)
         find(namespace, base_dir)
@@ -29,9 +29,10 @@ class SecretsVault
       end
 
       def initialize(namespace, base_dir, values)
-        @base_dir = File.expand_path(base_dir)
-        FileUtils.mkdir_p(@base_dir)
-        @path = File.join(@base_dir, self.class.vault_filename_for(namespace))
+        @path = File.join(
+          Helpers.ensure_dir_exists(base_dir),
+          self.class.vault_filename_for(namespace)
+        )
         @values = values
       end
 

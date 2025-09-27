@@ -14,6 +14,8 @@ class SecretsVault
         ciphertext        = Base64.strict_decode64(b64_ciphertext)
 
         new(header, ciphertext)
+      rescue JSON::ParserError, ArgumentError
+        raise VaultCorrupted, "Vault is corrupted"
       end
 
       def encode

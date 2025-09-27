@@ -122,4 +122,29 @@ RSpec.describe SecretsVault::Adapters::PlaintextFile do
         .to raise_error(SecretsVault::VaultCorrupted, /Vault is corrupted/)
     end
   end
+
+  describe "security hardening" do
+    it "sanitizes namespace to prevent path traversal and illegal chars" do
+      namespace = "../../etc/passwd..//..:evil"
+      vault = SecretsVault.new(namespace, adapter: :plaintext_file)
+      vault.store("K", "V")
+
+      expect(File).to exist(vault_file_path("etc_passwd_evil"))
+    end
+
+    it "sets restrictive permissions on directory and file" do
+      namespace = "myapp"
+      vault = SecretsVault.new(namespace, adapter: :plaintext_file)
+      vault.store("API_KEY", "abc123")
+
+      dir = File.expand_path(SecretsVault::BASE_DIR)
+      file = vault_file_path(namespace)
+
+      dir_mode  = File.stat(dir).mode & 0o777
+      file_mode = File.stat(file).mode & 0o777
+
+      expect(dir_mode).to satisfy { |m| [0o700, 0o600].include?(m) || m == 0 } # some FS may mask
+      expect(file_mode).to eq(0o600)
+    end
+  end
 end
